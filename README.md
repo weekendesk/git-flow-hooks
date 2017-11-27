@@ -104,8 +104,7 @@ Starting releases and hotfixes
 
 If `git flow release start` and `git flow hotfix start` are run without a version, the version will be bumped automatically.
 Releases will be bumped at the minor level (`1.2.3` becomes `1.3.0`), hotfixes at the patch level (`1.2.3` becomes `1.2.4`).
-The hooks will look at the git tags to find the version to bump.
-If no tags are found, it looks for the version-file.
+The hooks will look at the version-file to find the version to bump.
 If that isn't found, it assumes the current version is `0.0.0`.
 
 Alternatively you may use `patch`, `minor` and `major` as version.

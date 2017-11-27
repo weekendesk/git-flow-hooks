@@ -53,19 +53,6 @@ else
     __print_usage
 fi
 
-# read git tags
-
-VERSION_PREFIX=$(git config --get gitflow.prefix.versiontag)
-VERSION_TAG=$(git tag -l "$VERSION_PREFIX*" | grep -E "$SEMVER_FORMAT$" | $VERSION_SORT | tail -1)
-
-if [ ! -z "$VERSION_TAG" ]; then
-    if [ ! -z "$VERSION_PREFIX" ]; then
-        VERSION_CURRENT=${VERSION_TAG#$VERSION_PREFIX}
-    else
-        VERSION_CURRENT=$VERSION_TAG
-    fi
-fi
-
 # read version file (if version not found by tags)
 
 if [ -z "$VERSION_CURRENT" ]; then
